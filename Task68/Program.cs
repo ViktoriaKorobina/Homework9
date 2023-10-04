@@ -10,10 +10,20 @@ int Akkerman(int m, int n)
     if (m != 0 && n == 0) return Akkerman(m - 1, 1);
     return Akkerman(m - 1, Akkerman(m, n - 1));
 }
+bool Check(int m, int n)
+{
+    return (m >= 0 && n >= 0);
+}
 Console.Write("Введите первое число для вычисления функции Аккермана: ");
 int num1 = int.Parse(Console.ReadLine());
 Console.Write("Введите второе число для вычисления функции Аккермана: ");
 int num2 = int.Parse(Console.ReadLine());
-int akkerman = Akkerman(num1, num2);
-Console.Write("Функция Аккермана равна: ");
-Console.WriteLine(akkerman);
+if (Check(num1, num2))
+{
+    int akkerman = Akkerman(num1, num2);
+    Console.Write("Функция Аккермана равна: ");
+    Console.WriteLine(akkerman);
+}
+else Console.WriteLine("Недопустимые значения!");
+
+
